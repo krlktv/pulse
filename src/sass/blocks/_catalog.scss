@@ -7,6 +7,8 @@
 		align-items: center;
 		margin-top: 70px;
 		list-style-type: none;
+		margin-bottom: 0;
+		padding-left: 0;
 	}
 
 	&__tab {
@@ -22,6 +24,12 @@
 		transform: skew(-25deg);
 		margin: 0 5px;
 		cursor: pointer;
+		transition: 0.5s all;
+
+		&:hover {
+			box-shadow: 3px 3px 20px $main-color;
+			border: none;
+		}
 
 		div {
 			transform: skew(25deg);
@@ -31,6 +39,32 @@
 			background-color: $main-color;
 			color: #fff;
 			border: none
+		}
+	}
+
+	&__content {
+		margin-top: 60px;
+	}
+
+	&-item {
+		width: 300px;
+		min-height: 440px;
+		border: 2px solid #e8e8e8;
+		padding: 20px 20px 26px 20px;
+
+		&__img {
+			display: block;
+			margin: 0 auto;
+			max-width: 100%;
+			height: 140px;
+		}
+
+		&__subtitle {
+			margin-top: 20px;
+			color: #0d0d0d;
+			font-size: 16px;
+			font-weight: 700;
+			text-align: center;
 		}
 	}
 }
