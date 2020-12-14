@@ -66,4 +66,13 @@ $(document).ready(function () {
 
 	toggleSlide('.catalog-item__link');
 	toggleSlide('.catalog-item__back');
+
+	// Modal
+
+	$('[data-modal=consultation]').on('click', function () {
+		$('.overlay, #consultation').fadeIn('slow');
+	});
+	$('.modal__close').on('click', function () {
+		$('.overlay, #consultation, #thanks, #order').fadeOut('slow');
+	})
 });
