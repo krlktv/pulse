@@ -86,11 +86,25 @@ $(document).ready(function () {
 	$('#consultation-form').validate();
 	$('#consultation form').validate({
 		rules: {
-			name: "required",
+			name: {
+				required: true,
+				minlength: 2
+			},
 			phone: "required",
 			email: {
 				required: true,
 				email: true
+			}
+		},
+		messages: {
+			name: {
+				required: "Пожалуйста, введите своё имя",
+				minlength: jQuery.validator.format("Введите хотя бы {0} символа!")
+			},
+			phone: "Пожалуйста, введите свой номер телефон",
+			email: {
+				required: "Пожалуйста, введите свою почту",
+				email: "Неправильно введён адрес почты"
 			}
 		}
 	});
