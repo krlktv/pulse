@@ -83,31 +83,35 @@ $(document).ready(function () {
 		});
 	});
 
-	$('#consultation-form').validate();
-	$('#consultation form').validate({
-		rules: {
-			name: {
-				required: true,
-				minlength: 2
+	function valideForms(form) {
+		$(form).validate({
+			rules: {
+				name: {
+					required: true,
+					minlength: 2
+				},
+				phone: "required",
+				email: {
+					required: true,
+					email: true
+				}
 			},
-			phone: "required",
-			email: {
-				required: true,
-				email: true
+			messages: {
+				name: {
+					required: "Пожалуйста, введите своё имя",
+					minlength: jQuery.validator.format("Введите хотя бы {0} символа!")
+				},
+				phone: "Пожалуйста, введите свой номер телефон",
+				email: {
+					required: "Пожалуйста, введите свою почту",
+					email: "Неправильно введён адрес почты"
+				}
 			}
-		},
-		messages: {
-			name: {
-				required: "Пожалуйста, введите своё имя",
-				minlength: jQuery.validator.format("Введите хотя бы {0} символа!")
-			},
-			phone: "Пожалуйста, введите свой номер телефон",
-			email: {
-				required: "Пожалуйста, введите свою почту",
-				email: "Неправильно введён адрес почты"
-			}
-		}
-	});
-	$('#order form').validate();
+		});
+	}
+
+	valideForms('#consultation-form');
+	valideForms('#consultation form');
+	valideForms('#order form');
 
 });
